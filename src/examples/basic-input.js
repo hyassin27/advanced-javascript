@@ -10,16 +10,25 @@ class BasicInput extends React.Component {
   handleChange(e) {
     this.setState({userInput: e.target.value});
   }
+  additem() {
+      console.log("message");
+      let theitem = document.getElementById("theinput").value;
+      $("#thelist").append("<li>"+theitem+"</li>");
+  }
   render() {
     return (
       <div>
           <p>
             Please enter some input
           </p>
-          <input onChange={this.handleChange}/>
+          <input id="theinput" onChange={this.handleChange}/>
+          <button value="add" onClick={this.additem}>ADD</button>
           <p>
             You entered: {this.state.userInput}
           </p>
+        
+            <ul id="thelist">
+            </ul>
       </div>
     ); 
   }
