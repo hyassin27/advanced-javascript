@@ -1,4 +1,5 @@
 /* Basic example demonstrating input - using stateful components */
+//new line
 class BasicCounter extends React.Component {
   constructor(props) {
     super(props);
@@ -16,7 +17,9 @@ class BasicCounter extends React.Component {
       console.log(this.state.timer);
   }
   changeDirection(i){
-      this.state.direction==i;
+      console.log(i);
+      this.setState({direction: i});
+      console.log(this.state.direction);
   }
   handleChange(e) {
       let i = 0;
@@ -52,7 +55,7 @@ class BasicCounter extends React.Component {
     return (
       <div>
           <p>
-            Please enter your time in miliseconds
+            Please enter your time in seconds
           </p>
           <input onChange={this.handleChange}/>
         <input
@@ -80,7 +83,7 @@ class BasicCounter extends React.Component {
 const renderBasicCounter = () => {
   ReactDOM.render(
     <div>
-      This is a simple example to demonstrate a reactive update.
+      This is a timer/counter
       <BasicCounter/>
     </div>,
     document.getElementById('root')
